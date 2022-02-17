@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Movies Lists by categorie</h1>
+  <ul>
+    <% @lists.each do |list| %>
+      <li><%= list.name %></li>
+      <%= link_to 'list', list_path(list) %>
+    <% end %>
+    <%= link_to 'Create a new list', new_list_path %>
+  </ul>
+</div>
