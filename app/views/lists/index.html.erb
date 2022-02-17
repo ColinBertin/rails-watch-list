@@ -1,10 +1,21 @@
-<div class="container">
-  <h1>Movies Lists by categorie</h1>
-  <ul>
+<%= render 'application/banner' %>
+<div class="container mb-4">
+  <h1 class="mb-4">Movies Lists</h1>
+  <div class="cards pb-5 border-bottom">
     <% @lists.each do |list| %>
-      <li><%= list.name %></li>
-      <%= link_to 'list', list_path(list) %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://source.unsplash.com/featured/?movie&<%= rand(1000) %>)">
+        <%= link_to '', list_path(list), class: 'card-link' %>
+        <%= list.name %>
+      </div>
     <% end %>
-    <%= link_to 'Create a new list', new_list_path %>
-  </ul>
+    </div>
+    <h2 class="mt-5 mb-4">Movies suggestion</h2>
+    <div class="cards">
+      <% @movies.each do |movie| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= movie.poster_url %>)">
+          <%= movie.title %>
+          <p style="position: absolute; bottom: -10px; right: 8px; font-size: 16px;"><i class="fas fa-star text-warning"></i> <%= movie.rating.to_f %></p>
+        </div>
+      <% end %>
+    </div>
 </div>

@@ -1,12 +1,12 @@
-<div class="container">
-  <h1>Bookmarks#new</h1>
+<div class="container" style="padding: 100px 250px;">
+  <h1>Add a bookmark</h1>
   <%= simple_form_for [ @list, @bookmark ] do |f| %>
   <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit class:"btn btn-primary mt-2"%>
+  <%= f.association :movie, include_blank: false, collection: @movies %>
+  <%= f.submit class:"btn btn-success mt-2"%>
   <% end %>
   <div class="container mt-4">
-  <%= link_to lists_path do%>
+  <%= link_to lists_path, class: "text-info" do%>
     <p><i class="fas fa-undo-alt"></i> Back to list</p>
   <% end %>
 </div>
