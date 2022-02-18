@@ -3,7 +3,7 @@ Movie.destroy_all
 # List.destroy_all
 
 # the Le Wagon copy of the API
-url = 'http://tmdb.lewagon.com/movie/top_rated'
+url = 'https://api.themoviedb.org/3/movie/popular?api_key=c60e8b2d743239f99317ff6a0d177935&language=en-US&page=1'
 response = JSON.parse(URI.open(url).read)
 
 response['results'].each do |movie_hash|
