@@ -3,7 +3,7 @@
   <h1 class="mb-4">Movies Lists</h1>
   <div class="cards pb-5 border-bottom">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(http://source.unsplash.com/featured/?movie&<%= rand(1000) %>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path('camera.webp') %>)">
         <%= link_to '', list_path(list), class: 'card-link' %>
         <%= list.name %>
       </div>
@@ -16,7 +16,7 @@
           <%= movie.title %>
           <p style="position: absolute; bottom: -10px; right: 8px; font-size: 16px;"><i class="fas fa-star text-warning"></i> <%= movie.rating.to_f %></p>
           <%= link_to new_movie_bookmark_path(movie), style: "position: absolute; top: 6px; right: 12px" do %>
-            <i class="fas fa-bookmark"></i>
+            <i class="fas fa-folder-plus text-success"></i>
           <% end %>
         </div>
       <% end %>
