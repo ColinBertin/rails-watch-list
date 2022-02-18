@@ -1,4 +1,5 @@
 require 'open-uri'
+Bookmark.destroy_all
 Movie.destroy_all
 puts "Destroying the movies..."
 # List.destroy_all
