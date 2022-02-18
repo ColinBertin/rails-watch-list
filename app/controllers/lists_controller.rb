@@ -10,7 +10,6 @@ class ListsController < ApplicationController
 
   def new
     @list = List.new
-    @lists = List.order(name: :asc)
   end
 
   def create

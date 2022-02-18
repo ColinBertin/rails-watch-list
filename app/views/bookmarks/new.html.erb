@@ -1,12 +1,27 @@
 <div class="container" style="padding: 100px 250px;">
-  <h1>Add a bookmark</h1>
-  <%= simple_form_for [ @list, @bookmark ] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie, include_blank: false, collection: @movies %>
-  <%= f.submit class:"btn btn-success mt-2"%>
-  <% end %>
-  <div class="container mt-4">
-  <%= link_to lists_path, class: "text-info" do%>
-    <p><i class="fas fa-undo-alt"></i> Back to list</p>
+  <% if @list %>
+    <h1>Add a bookmark</h1>
+    <%= simple_form_for [ @list, @bookmark ] do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie, collection: Movie.where.not(id: @list.movies).order(:title), include_blank: false %>
+      <%= f.submit class:"btn btn-success mt-2"%>
+    <% end %>
+    <div class="container mt-4">
+      <%= link_to lists_path, class: "text-info" do%>
+        <p><i class="fas fa-undo-alt"></i> Back to list</p>
+      <% end %>
+    </div>
+  <% elsif @movie %>
+    <h1>Add movie to list</h1>
+    <%= simple_form_for [ @movie, @bookmark ] do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :list, collection: List.where.not(id: @movie.lists).order(:name), include_blank: false %>
+      <%= f.submit class:"btn btn-success mt-2"%>
+    <% end %>
+    <div class="container mt-4">
+      <%= link_to lists_path, class: "text-info" do%>
+        <p><i class="fas fa-undo-alt"></i> Back to list</p>
+      <% end %>
+    </div>
   <% end %>
 </div>
