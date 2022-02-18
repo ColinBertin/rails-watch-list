@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
-    @movies = Movie.all
+    @movies = Movie.all.order(rating: :desc)
   end
 
   def show
