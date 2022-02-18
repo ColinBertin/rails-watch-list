@@ -16,7 +16,7 @@
           <%= movie.title %>
           <p style="position: absolute; bottom: -10px; right: 8px; font-size: 16px;"><i class="fas fa-star text-warning"></i> <%= movie.rating.to_f %></p>
           <%= link_to new_movie_bookmark_path(movie), style: "position: absolute; top: 6px; right: 12px" do %>
-            <i class="fas fa-folder-plus text-success"></i>
+            <i class="fas fa-bookmark text-success"></i>
           <% end %>
         </div>
       <% end %>
