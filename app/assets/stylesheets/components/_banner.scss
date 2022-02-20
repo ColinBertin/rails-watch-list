@@ -25,3 +25,26 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+#myVideo {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 150px;
+}
+
+.ancer {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  font-size: 32px;
+}
+
+@media (max-width: 1020px) {
+  #myVideo {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+}
