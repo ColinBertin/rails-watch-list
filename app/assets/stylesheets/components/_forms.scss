@@ -1,0 +1,22 @@
+.form {
+  padding: 100px 250px
+}
+
+@media (max-width: 1020px) {
+  .form {
+    padding: 100px 120px;
+  }
+}
+
+
+@media (max-width: 780px) {
+  .form {
+    padding: 100px 60px;
+  }
+}
+
+@media (max-width: 368px) {
+  .form {
+    padding: 100px 30px;
+  }
+}
