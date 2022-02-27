@@ -6,7 +6,7 @@ puts "Destroying the movies..."
 
 
 # the Le Wagon copy of the API
-(1..5).each do |count|
+(1..10).each do |count|
   url = "https://api.themoviedb.org/3/movie/popular?api_key=c60e8b2d743239f99317ff6a0d177935&language=en-US&page=#{count}"
   el = JSON.parse(URI.open(url).read)
   el['results'].each do |movie_hash|
